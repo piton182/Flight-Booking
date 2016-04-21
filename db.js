@@ -61,21 +61,27 @@ function parsingFlights(){
 }
 
 
-function f(el) {
-  for (var i=0; i<listOfFlights.length; i++){
-    for(var j = 0; j<listOfFlights[i].passengers.length; j++){
-      if(listOfFlights[i].flightNumber === el.innerHTML){
-  			if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
-          document.write("<tr>","<td>")
-          document.write(listOfFlights[i].passengers[j].name)
-          document.write("</td>","<td>")
-          document.write(listOfFlights[i].passengers[j].booking)
-          document.write("</td>","</tr>")
-      	}
-    	}
-  	}
-	}
-}       
+function f(el){
+	 var test = el.innerHTML
+	 console.log(test)
+}
+
+function parsingPassengers(){
+	for (var i=0; i<listOfFlights.length; i++){
+	    for(var j = 0; j<listOfFlights[i].passengers.length; j++){
+	      if(listOfFlights[i].flightNumber === "AB1322"){
+	  			if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
+		          document.write("<tr>","<td>")
+		          document.write(listOfFlights[i].passengers[j].name)
+		          document.write("</td>","<td>")
+		          document.write(listOfFlights[i].passengers[j].booking)
+		          document.write("</td>","</tr>")
+		      	}
+	    	}
+	  	}
+	} 
+}
+      
 
 
 
