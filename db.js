@@ -63,24 +63,27 @@ function parsingFlights(){
 function f(el){
 	var test = el.innerHTML
 	console.log(test)
+  for(var i=0;i<20;i++){
+    if(document.getElementById("dev")){
+      document.getElementById("dev").parentNode.removeChild(document.getElementById("dev"))
+    }
+  }if(!document.getElementById("dev")){
 		for (var i=0; i<listOfFlights.length; i++){
 			if(listOfFlights[i].flightNumber === test){
 				for(var j =0; j<listOfFlights[i].passengers.length; j++){
 					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
-             var elem = document.getElementById("dev")
-              elem.parentNode.removeChild(elem)
-             document.getElementsByTagName("tbody")[2].innerHTML = document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'	
+             document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'	
 					}
 				}
 			}
 		}
 	}
-	
+}
 
 
 function parsingPassengers(){
 	for (var i=0; i<listOfFlights.length; i++){
-		if(listOfFlights[i].flightNumber === "AB1322"){
+		if(listOfFlights[i].flightNumber){
 				for(var j = 0; j<listOfFlights[i].passengers.length; j++){
 					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
               document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'
