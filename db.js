@@ -68,13 +68,8 @@ function f(el){
 				for(var j =0; j<listOfFlights[i].passengers.length; j++){
 					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
              var elem = document.getElementById("dev")
-              elem.parentNode.removeChild(elem) 
-
-              
-              
-      
-             document.getElementsByTagName("tbody")[2].innerHTML = document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'
-							
+              elem.parentNode.removeChild(elem)
+             document.getElementsByTagName("tbody")[2].innerHTML = document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'	
 					}
 				}
 			}
@@ -85,7 +80,7 @@ function f(el){
 
 function parsingPassengers(){
 	for (var i=0; i<listOfFlights.length; i++){
-		if(listOfFlights[i].flightNumber === "QR335"){
+		if(listOfFlights[i].flightNumber === "AB1322"){
 				for(var j = 0; j<listOfFlights[i].passengers.length; j++){
 					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
               document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'
