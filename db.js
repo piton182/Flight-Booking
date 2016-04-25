@@ -65,27 +65,16 @@ function f(el){
 	console.log(test)
 		for (var i=0; i<listOfFlights.length; i++){
 			if(listOfFlights[i].flightNumber === test){
-				for(var j = 0; j<listOfFlights[i].passengers.length; j++){
+				for(var j =0; j<listOfFlights[i].passengers.length; j++){
 					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
-		
-						if(document.getElementById("dev") !== null){
-							var elem = document.getElementById("dev")
-							elem.parentNode.removeChild(elem)		   
-					
-							console.log("----------------------------")
-							console.log(listOfFlights[i].flightNumber === test)
-							console.log("----------------------------")
-					
-							var newTr = document.createElement('tr')
-							newTr.id = 'dev'
-							document.getElementsByTagName("tbody")[2].appendChild(newTr)
-				   		var newTd = document.createElement('td')
-							document.getElementById('dev').appendChild(newTd)
-							newTd.innerHTML = listOfFlights[i].passengers[j].name
-				   		var newTd1 = document.createElement('td')
-							document.getElementById('dev').appendChild(newTd1)
-							newTd1.innerHTML = listOfFlights[i].passengers[j].booking
-						}
+             var elem = document.getElementById("dev")
+              elem.parentNode.removeChild(elem) 
+
+              
+              
+      
+             document.getElementsByTagName("tbody")[2].innerHTML = document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'
+							
 					}
 				}
 			}
@@ -96,14 +85,10 @@ function f(el){
 
 function parsingPassengers(){
 	for (var i=0; i<listOfFlights.length; i++){
-		if(listOfFlights[i].flightNumber === "AB1322"){
+		if(listOfFlights[i].flightNumber === "QR335"){
 				for(var j = 0; j<listOfFlights[i].passengers.length; j++){
 					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
-							document.write("<tr id='dev'>","<td>")
-							document.write(listOfFlights[i].passengers[j].name)
-							document.write("</td>","<td>")
-							document.write(listOfFlights[i].passengers[j].booking)
-							document.write("</td>","</tr>")
+              document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'
 						}
 				}
 			}
