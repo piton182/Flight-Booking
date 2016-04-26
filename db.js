@@ -74,9 +74,7 @@ var listOfFlights =
 function parsingFlights(){
 	for (var i=0; i<listOfFlights.length; i++){
 		if(listOfFlights[i].flightNumber){
-			document.write("<tr>",'<td class="choice" onclick="f(this)">')
-			document.write(listOfFlights[i].flightNumber)
-			document.write("</td>","</tr>")
+			document.write("<tr>",'<td class="choice" onclick="f(this)">'+listOfFlights[i].flightNumber+"</td>","</tr>")
 		}
 	}
 }
@@ -112,7 +110,7 @@ function parsingPassengers(){
               			document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'
 					}
 				}
-			}
+		}
 	}
 }
 			
