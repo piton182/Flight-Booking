@@ -63,7 +63,7 @@ function parsingFlights(){
 function f(el){
 	var test = el.innerHTML
 	console.log(test)
-  for(var i=0;i<20;i++){
+  for(var i=0;i<20;i++){ 				//this is hardcode:) i don't know how to fix it yet..
     if(document.getElementById("dev")){
       document.getElementById("dev").parentNode.removeChild(document.getElementById("dev"))
     }
@@ -72,7 +72,7 @@ function f(el){
 			if(listOfFlights[i].flightNumber === test){
 				for(var j =0; j<listOfFlights[i].passengers.length; j++){
 					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
-             document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'	
+             			document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'	
 					}
 				}
 			}
@@ -86,8 +86,8 @@ function parsingPassengers(){
 		if(listOfFlights[i].flightNumber){
 				for(var j = 0; j<listOfFlights[i].passengers.length; j++){
 					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
-              document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'
-						}
+              			document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'
+					}
 				}
 			}
 	}
