@@ -46,7 +46,28 @@ var listOfFlights =
 					"booking":  "QWERT"
 				},
 		] 
-	} 
+	},
+	{ 
+		"flightNumber": "BB554", 
+		"passengers": [ 
+				{
+					"name":     "Parrot",
+					"booking":  "TYY"
+				},
+				{
+					"name":     "Monkey",
+					"booking":  "TYY"
+				},
+				{
+					"name": "Piton",
+					"booking":  "TYY"
+				},
+				{
+					"name": "Elephan",
+					"booking":  "TYY"
+				},
+		] 
+	}  
 ]
 
 
