@@ -63,11 +63,13 @@ function parsingFlights(){
 function f(el){
 	var test = el.innerHTML
 	console.log(test)
-  for(var i=0;i<20;i++){ 				//this is hardcode:) i don't know how to fix it yet..
-    if(document.getElementById("dev")){
-      document.getElementById("dev").parentNode.removeChild(document.getElementById("dev"))
-    }
-  }if(!document.getElementById("dev")){
+	for (var i=0; i<listOfFlights.length; i++){
+	  	for(var j =0; j<listOfFlights[i].passengers.length; j++){
+	    	if(document.getElementById("dev")){
+	      		document.getElementById("dev").parentNode.removeChild(document.getElementById("dev"))
+	    	}
+	  	}
+	}if(!document.getElementById("dev")){
 		for (var i=0; i<listOfFlights.length; i++){
 			if(listOfFlights[i].flightNumber === test){
 				for(var j =0; j<listOfFlights[i].passengers.length; j++){
