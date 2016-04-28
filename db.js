@@ -73,17 +73,20 @@ var listOfFlights =
 
 function parsingFlights(){
 	for (var i=0; i<listOfFlights.length; i++){
-		if(listOfFlights[i].flightNumber){
-			document.write("<tr>",'<td class="choice" onclick="f(this)">'+listOfFlights[i].flightNumber+"</td>","</tr>")
+		var fNumber = listOfFlights[i].flightNumber
+		if(fNumber){
+			document.write("<tr>",'<td class="choice" onclick="f(this)">'+
+							fNumber+"</td>","</tr>")
 		}
 	}
 }
+
 
 function f(el){
 	var test = el.innerHTML
 	console.log(test)
 	for (var i=0; i<listOfFlights.length; i++){
-	  	for(var j =0; j<listOfFlights[i].passengers.length; j++){
+	  	for(var j=0; j<listOfFlights[i].passengers.length; j++){
 	    	if(document.getElementById("dev")){
 	      		document.getElementById("dev").parentNode.removeChild(document.getElementById("dev"))
 	    	}
@@ -91,9 +94,11 @@ function f(el){
 	}if(!document.getElementById("dev")){
 		for (var i=0; i<listOfFlights.length; i++){
 			if(listOfFlights[i].flightNumber === test){
-				for(var j =0; j<listOfFlights[i].passengers.length; j++){
+				for(var j=0; j<listOfFlights[i].passengers.length; j++){
 					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
-             			document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'	
+             			document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+
+             				listOfFlights[i].passengers[j].name+'</td><td>'+
+             				listOfFlights[i].passengers[j].booking+'</td></tr>'	
 					}
 				}
 			}
@@ -102,18 +107,62 @@ function f(el){
 }
 
 
+
 function parsingPassengers(){
 	for (var i=0; i<listOfFlights.length; i++){
 		if(listOfFlights[i].flightNumber){
-				for(var j = 0; j<listOfFlights[i].passengers.length; j++){
-					if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
-              			document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+listOfFlights[i].passengers[j].name+'</td><td>'+listOfFlights[i].passengers[j].booking+'</td></tr>'
-					}
+			for(var j = 0; j<listOfFlights[i].passengers.length; j++){
+				if(listOfFlights[i].passengers[j].name && listOfFlights[i].passengers[j].booking){
+          			document.getElementsByTagName("tbody")[2].innerHTML += '<tr id="dev"><td>'+
+              			listOfFlights[i].passengers[j].name+'</td><td>'+
+              			listOfFlights[i].passengers[j].booking+'</td></tr>'
 				}
+			}
 		}
 	}
-}
-			
+}			
+
+
+
+// Dmitry
+
+// function removePassengersComponent() {
+//   var el = document.getElementById('passengers');
+//   el.parentNode.removeChild(el);
+// }
+
+// function constructPassengersComponent(passengers) {
+// 	function createPassengersContainer(id) {
+//   	var newDiv = document.createElement('div');
+//     newDiv.id = id;
+//     return newDiv;
+//   }
+//   function appendPassengersItems(passengerContainer, passengers) {
+//     passengers.map(function(v) {
+//     	var newSpan;
+//       {
+//         newSpan = document.createElement('span');
+//         newSpan.id = v.id;
+//         newSpan.className = "pax";
+//         newSpan.textContent = v.id;
+//       }
+//       passengerContainer.appendChild(newSpan);
+//     });
+//   }
+// 	var newPassengersContainer = createPassengersContainer("passengers");
+//   appendPassengersItems(newPassengersContainer, passengers);
+  
+//   document.body.appendChild(newPassengersContainer);
+// }
+
+// function onFlightClick() {
+// 	removePassengersComponent();
+//   var flight = {
+//   	flightNumber: "asdfsf",
+//     passengers: [ {id: "pax1"}, {id: "pax2"}, {id: "pax3"}]
+//   };
+//   constructPassengersComponent(flight.passengers);
+// }
 
 
 
