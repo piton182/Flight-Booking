@@ -84,11 +84,11 @@ function parsingFlights(){
 
 function onFlightClick(el){
 	console.log(el.innerHTML)
-	var test = listOfFlights.map(function(passList, i){
-	return document.getElementsByTagName("td")[1].innerHTML += '<span id="passengers">'+
-     				passList.passengers[i].name+'<span/>  <span id="bookings" id="passengers">'+
-     				passList.passengers[i].booking+'</span>'+'<br>'
-	
+		var test = listOfFlights.map(function(passList, i){
+			console.log(passList.passengers, i)
+		  document.getElementsByTagName("td")[1].innerHTML += '<span id="passengers">'+
+			passList.passengers[i].name+'<span/>  <span id="bookings">'+
+			passList.passengers[i].booking+'</span>'+'<br>'
 	});
 }
 
