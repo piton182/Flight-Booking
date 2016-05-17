@@ -70,40 +70,26 @@ var listOfFlights =
 	}  
 ]
 
-
-function parsingFlights(){
-	for (var i=0; i<listOfFlights.length; i++){
-		var fNumber = listOfFlights[i].flightNumber
-		document.write("<div class='choice' onclick='f(this)'>"+fNumber+"</div>")
-	}
+function removePassengersComponent() {
+  var el = document.getElementById('passengers');
+  el.parentNode.removeChild(el);
 }
 
 
-// function removePassengersComponent() {
-//   var el = document.getElementById('passengers');
-//   el.parentNode.removeChild(el);
-// }
+function parsingFlights(){
+	var flightNumber = listOfFlights.map(function(flightsList){
+		return document.write("<div class='choice' onclick='onFlightClick(this)'>"+flightsList.flightNumber+"</div>")
+	})
+}
 
-
-function f(el){
+function onFlightClick(el){
 	console.log(el.innerHTML)
-	for (i=0; i<listOfFlights.length; i++){
-	  	for(j=0; j<listOfFlights[i].passengers.length; j++){
-	    	if(document.getElementById("dev")){
-	      		document.getElementById("dev").parentNode.removeChild(document.getElementById("dev"))
-	    	}
-	  	}
-	}if(!document.getElementById("dev")){
-		for (i=0; i<listOfFlights.length; i++){
-			if(listOfFlights[i].flightNumber === el.innerHTML){
-				for(j=0; j<listOfFlights[i].passengers.length; j++){
-             			document.getElementsByTagName("td")[1].innerHTML += '<span class="passengers" id="dev">'+
-             				listOfFlights[i].passengers[j].name+'<span/>  <span class="bookings" id="dev">'+
-             				listOfFlights[i].passengers[j].booking+'</span>'+'<br>'
-				}
-			}
-		}
-	}
+	var test = listOfFlights.map(function(passList, i){
+	return document.getElementsByTagName("td")[1].innerHTML += '<span class="passengers" id="passengers">'+
+     				passList.passengers[i].name+'<span/>  <span class="bookings" id="passengers">'+
+     				passList.passengers[i].booking+'</span>'+'<br>'
+	
+	});
 }
 
 
