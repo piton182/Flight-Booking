@@ -78,15 +78,15 @@ function removePassengersComponent() {
 
 function parsingFlights(){
 	var flightNumber = listOfFlights.map(function(flightsList){
-		return document.write("<div class='choice' onclick='onFlightClick(this)'>"+flightsList.flightNumber+"</div>")
+		return document.write("<div onclick='onFlightClick(this)'>"+flightsList.flightNumber+"</div>")
 	})
 }
 
 function onFlightClick(el){
 	console.log(el.innerHTML)
 	var test = listOfFlights.map(function(passList, i){
-	return document.getElementsByTagName("td")[1].innerHTML += '<span class="passengers" id="passengers">'+
-     				passList.passengers[i].name+'<span/>  <span class="bookings" id="passengers">'+
+	return document.getElementsByTagName("td")[1].innerHTML += '<span id="passengers">'+
+     				passList.passengers[i].name+'<span/>  <span id="bookings" id="passengers">'+
      				passList.passengers[i].booking+'</span>'+'<br>'
 	
 	});
