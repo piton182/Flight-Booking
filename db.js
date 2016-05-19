@@ -83,10 +83,17 @@ function parsingFlights(){
 	})
 }
 
+
 function onFlightClick(el){
-	console.log(el.innerHTML)
-	 listOfFlights.map(function(flightList){
-	 	if (flightList.flightNumber === el.innerHTML){
+	constructPassengers(el.innerHTML)
+}
+
+
+
+
+function constructPassengers(el){
+	listOfFlights.map(function(flightList){
+	 	if (flightList.flightNumber === el){
 		 	flightList.passengers.map(function(passList){
 		 		document.getElementsByTagName("td")[1].innerHTML += '<span id="passengers">'+
 				passList.name+'<span/>  <span id="bookings">'+
@@ -95,6 +102,8 @@ function onFlightClick(el){
 	 	}
 	})
 }
+
+
 
 
 
