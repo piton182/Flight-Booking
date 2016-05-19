@@ -76,16 +76,29 @@ function removePassengersComponent() {
 }
 
 
-
 function parsingFlights(){
-	var flightNumber = listOfFlights.map(function(flightsList,i){
-		return document.write("<div onclick='onFlightClick(this)'>"+flightsList.flightNumber+"</div>")
+	var flightNumber = listOfFlights.map(function(flightsList){ 
+		var newDiv;
+	  {
+		newDiv = document.createElement('div')
+		newDiv.innerHTML = flightsList.flightNumber
+		newDiv.onclick = function(){onFlightClick(this)}
+		document.getElementById("flights").appendChild(newDiv)
+      }
 	})
 }
 
-
-function onFlightClick(el){
-	constructPassengers(el.innerHTML)
+function parsingPassengers(){
+	var passList = listOfFlights.map(function(flightList){
+		flightList.passengers.map(function(passList){
+			var newSpan;
+			{
+				newSpan = document.createElement("span")
+				newSpan.innerHTML = passList.name  + " " + passList.booking
+				document.getElementById("passengers").appendChild(newSpan)
+			}
+		})
+	})
 }
 
 
@@ -93,11 +106,17 @@ function onFlightClick(el){
 
 function constructPassengers(el){
 	listOfFlights.map(function(flightList){
-	 	if (flightList.flightNumber === el){
+	 if(flightList.flightNumber === el){
 		 	flightList.passengers.map(function(passList){
-		 		document.getElementsByTagName("td")[1].innerHTML += '<span id="passengers">'+
-				passList.name+'<span/>  <span id="bookings">'+
-				passList.booking+'</span>'+'<br>'
+		 		var newDivId = document.createElement('div')
+		 		newDivId.id = "passengers"
+		 		var newSpan;
+			{
+				newSpan = document.createElement("span")
+				newSpan.innerHTML = passList.name  + " " + passList.booking
+			}
+			document.getElementById("passengers").appendChild(newSpan)
+
 		 	});
 	 	}
 	})
@@ -108,6 +127,11 @@ function constructPassengers(el){
 
 
 
+function onFlightClick(el){
+	console.log(el.innerHTML)
+	removePassengersComponent()
+	constructPassengers(el.innerHTML)
+}
 
 
 
@@ -115,3 +139,5 @@ function constructPassengers(el){
 
 
 
+
+// как передавать уникальные id?
