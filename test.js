@@ -20,40 +20,47 @@ function removePassengersComponent() {
 }
 
 
-
-
+//---------------------------------------------------------------------------------------------------------------------------------   2
 function constructPassengersComponent(passengers) {
-	function createPassengersContainer(id) {
+  console.log("constructPassengersComponent:", passengers)
+//---------------------------------------------------------------------------------------------------------------------------------   3
+  function createPassengersContainer(id) {
+    console.log("createPassengersContainer:",id)
 	  	var newDiv = document.createElement('div');
 	    newDiv.id = id;
-	    console.log(newDiv.id)
+      console.log("newDiv.id:",id)
 	    return newDiv;
   	}
 
 
 	function appendPassengersItems(passengerContainer, passengers) {
 	    passengers.map(function(v) {
+        console.log("v:",v)
 	    	var newSpan;
 	      {
 	        newSpan = document.createElement('span');
 	        newSpan.id = v.id;
+          console.log("newSpan.id:", v.id)
 	        newSpan.className = "pax";
 	        newSpan.textContent = v.id;
+          console.log("newSpan.textContent:", v.id)
 	      }
 	      passengerContainer.appendChild(newSpan);
 	    });
 	  }
-	
+//---------------------------------------------------------------------------------------------------------------------------------   3	
 	var newPassengersContainer = createPassengersContainer("passengers");
+  
   	
   	appendPassengersItems(newPassengersContainer, passengers);
+    console.log("appendPassengersItems(newPassengersContainer, passengers)", newPassengersContainer, passengers)
   
   	document.body.appendChild(newPassengersContainer);
 }
 
-
+//---------------------------------------------------------------------------------------------------------------------------------   1
 function onFlightClick(flightItem) {
+  console.log("flightItem:",flightItem)         
 	removePassengersComponent();
   	constructPassengersComponent(db[flightItem.id].passengers);
-  	console.log(db[flightItem.id].passengers)
 }

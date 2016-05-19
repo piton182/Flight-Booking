@@ -28,21 +28,21 @@ color: #3E4347;
    } 
 
 
-/*
+
    #flights {
   background-color: lightgreen;
   padding: 5px;
 }
 
-.flight {
+/*.flight {
   background-color: yellow;
-}
+}*/
 
 #passengers {
   background-color: magenta;
   padding: 5px;
 }
 
-.pax {
+/*.pax {
   background-color: salmon;
 }*/

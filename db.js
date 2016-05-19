@@ -75,56 +75,49 @@ function removePassengersComponent() {
   el.parentNode.removeChild(el);
 }
 
+// function insertAfter(parent, node, referenceNode) {
+//     parent.insertBefore(node, referenceNode.nextSibling);
+// }
+
 
 function parsingFlights(){
 	var flightNumber = listOfFlights.map(function(flightsList){ 
-		var newDiv;
-	  {
-		newDiv = document.createElement('div')
-		newDiv.innerHTML = flightsList.flightNumber
-		newDiv.onclick = function(){onFlightClick(this)}
-		document.getElementById("flights").appendChild(newDiv)
-      }
-	})
-}
-
-function parsingPassengers(){
-	var passList = listOfFlights.map(function(flightList){
-		flightList.passengers.map(function(passList){
-			var newSpan;
+			var newDiv;
+		  {
+			newDiv = document.createElement('div')
+			newDiv.id = flightsList.flightNumber         //I don't know how to generate id...
+			newDiv.innerHTML = flightsList.flightNumber
+			newDiv.onclick = function(){onFlightClick(this)}
+			document.getElementById("flights").appendChild(newDiv)
+	      }
+		flightsList.passengers.map(function(passList){
+			var newPasSpan
 			{
-				newSpan = document.createElement("span")
-				newSpan.innerHTML = passList.name  + " " + passList.booking
-				document.getElementById("passengers").appendChild(newSpan)
+				newPasSpan = document.createElement("div")
+				newPasSpan.innerHTML = passList.name+"  "+passList.booking
+				document.getElementById("passengers").appendChild(newPasSpan)
 			}
 		})
 	})
 }
 
-
-
-
 function constructPassengers(el){
 	listOfFlights.map(function(flightList){
 	 if(flightList.flightNumber === el){
 		 	flightList.passengers.map(function(passList){
-		 		var newDivId = document.createElement('div')
-		 		newDivId.id = "passengers"
-		 		var newSpan;
-			{
-				newSpan = document.createElement("span")
-				newSpan.innerHTML = passList.name  + " " + passList.booking
-			}
-			document.getElementById("passengers").appendChild(newSpan)
+		 		var newSpan 
+		 		{
+		 			newSpan    = document.createElement('span')
+		 			newSpan.id = "passengers"	
+		 		} 
+		 	var div = document.createElement('div')
+		 	div.innerHTML = passList.name+"  "+passList.booking
+		 	document.getElementById("flights").appendChild(div)
 
 		 	});
 	 	}
 	})
 }
-
-
-
-
 
 
 function onFlightClick(el){
