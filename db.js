@@ -76,34 +76,25 @@ function removePassengersComponent() {
 }
 
 
+
 function parsingFlights(){
-	var flightNumber = listOfFlights.map(function(flightsList){
-		return document.write("<div id='test' onclick='onFlightClick(this)'>"+flightsList.flightNumber+"</div>")
+	var flightNumber = listOfFlights.map(function(flightsList,i){
+		return document.write("<div onclick='onFlightClick(this)'>"+flightsList.flightNumber+"</div>")
 	})
 }
 
 function onFlightClick(el){
 	console.log(el.innerHTML)
 	 listOfFlights.map(function(flightList){
-	 	flightList.passengers.map(function(passList){
-	 		document.getElementsByTagName("td")[1].innerHTML += '<span id="passengers">'+
-			passList.name+'<span/>  <span id="bookings">'+
-			passList.booking+'</span>'+'<br>'
-	 	});
-	});
-	 console.log(el.flightNumber[0])
+	 	if (flightList.flightNumber === el.innerHTML){
+		 	flightList.passengers.map(function(passList){
+		 		document.getElementsByTagName("td")[1].innerHTML += '<span id="passengers">'+
+				passList.name+'<span/>  <span id="bookings">'+
+				passList.booking+'</span>'+'<br>'
+		 	});
+	 	}
+	})
 }
-
-
-
-
-// var test = listOfFlights.map(function(passList, i){
-// 			console.log(passList.passengers, i)
-// 		  document.getElementsByTagName("td")[1].innerHTML += '<span id="passengers">'+
-// 			passList.passengers[i].name+'<span/>  <span id="bookings">'+
-// 			passList.passengers[i].booking+'</span>'+'<br>'
-// 	});
-
 
 
 
