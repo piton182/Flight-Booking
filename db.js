@@ -1,6 +1,5 @@
-var listOfFlights = 
-[
-	{
+var listOfFlights = {
+	"AB1322":{
 		"flightNumber": "AB1322", 
 		"passengers": [ 
 				{
@@ -13,9 +12,9 @@ var listOfFlights =
 				}, 
 		] 
 	}, 
-	{ 
-		"flightNumber": "CD224",
-		"passengers": [ 
+	"CD224":{ 
+		flightNumber: "CD224",
+		passengers: [ 
 				{
 					"name":     "Alex Emshanov",
 					"booking":  "ADADADAD"
@@ -30,9 +29,9 @@ var listOfFlights =
 				},
 		] 
 	}, 
-	{ 
-		"flightNumber": "QR335", 
-		"passengers": [ 
+	"QR335":{ 
+		flightNumber: "QR335", 
+		passengers: [ 
 				{
 					"name":     "Ivan Lapshin",
 					"booking":  "QWERT"
@@ -47,9 +46,9 @@ var listOfFlights =
 				},
 		] 
 	},
-	{ 
-		"flightNumber": "BB554", 
-		"passengers": [ 
+	"BB554":{ 
+		flightNumber: "BB554", 
+		passengers: [ 
 				{
 					"name":     "Parrot",
 					"booking":  "TYY"
@@ -68,69 +67,48 @@ var listOfFlights =
 				},
 		] 
 	}  
-]
+}
 
 function removePassengersComponent() {
   var el = document.getElementById('passengers');
   el.parentNode.removeChild(el);
 }
 
-// function insertAfter(parent, node, referenceNode) {
-//     parent.insertBefore(node, referenceNode.nextSibling);
-// }
-
-
 function parsingFlights(){
-	var flightNumber = listOfFlights.map(function(flightsList){ 
+	var keys = _.map(_.keys(listOfFlights), function(id){
 			var newDiv;
 		  {
 			newDiv = document.createElement('div')
-			newDiv.id = flightsList.flightNumber         //I don't know how to generate id...
-			newDiv.innerHTML = flightsList.flightNumber
+		    newDiv.id = id  //I don't know how to generate id better...
+		    newDiv.innerHTML = id
 			newDiv.onclick = function(){onFlightClick(this)}
 			document.getElementById("flights").appendChild(newDiv)
 	      }
-		flightsList.passengers.map(function(passList){
-			var newPasSpan
-			{
-				newPasSpan = document.createElement("div")
-				newPasSpan.innerHTML = passList.name+"  "+passList.booking
-				document.getElementById("passengers").appendChild(newPasSpan)
-			}
-		})
 	})
 }
 
 function constructPassengers(el){
-	listOfFlights.map(function(flightList){
-	 if(flightList.flightNumber === el){
-		 	flightList.passengers.map(function(passList){
-		 		var newSpan 
-		 		{
-		 			newSpan    = document.createElement('span')
-		 			newSpan.id = "passengers"	
-		 		} 
-		 	var div = document.createElement('div')
-		 	div.innerHTML = passList.name+"  "+passList.booking
-		 	document.getElementById("flights").appendChild(div)
-
-		 	});
-	 	}
+	var newPBSpan
+		{
+			newPBSpan = document.createElement("span")
+			newPBSpan.id = "passengers"	
+			newPBSpan.innerHTML = 'Passenger Name'+" "+'Booking Number'
+		}
+	_.map(el, function(id){
+		var newPasSpan
+		{
+			newPasSpan = document.createElement("div")
+			newPasSpan.innerHTML = id.name+" "+id.booking
+		}
+		
+		document.body.appendChild(newPBSpan)
+		document.getElementById("passengers").appendChild(newPasSpan)
 	})
 }
-
 
 function onFlightClick(el){
 	console.log(el.innerHTML)
 	removePassengersComponent()
-	constructPassengers(el.innerHTML)
+	constructPassengers(listOfFlights[el.id].passengers)
+	
 }
-
-
-
-
-
-
-
-
-// как передавать уникальные id?
