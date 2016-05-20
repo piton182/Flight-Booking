@@ -75,11 +75,11 @@ function removePassengersComponent() {
 }
 
 function parsingFlights(){
-	var keys = _.map(_.keys(listOfFlights), function(id){
-			var newDiv;
+	_.map(_.keys(listOfFlights), function(id){
+		var newDiv;
 		  {
 			newDiv = document.createElement('div')
-		    newDiv.id = id  //I don't know how to generate id better...
+		    newDiv.id = id  						//I don't know how to generate id better...
 		    newDiv.innerHTML = id
 			newDiv.onclick = function(){onFlightClick(this)}
 			document.getElementById("flights").appendChild(newDiv)
@@ -94,8 +94,9 @@ function constructPassengers(el){
 			newPBSpan.id = "passengers"	
 			newPBSpan.innerHTML = 'Passenger Name'+" "+'Booking Number'
 		}
+		
 	_.map(el, function(id){
-		var newPasSpan
+	var newPasSpan
 		{
 			newPasSpan = document.createElement("div")
 			newPasSpan.innerHTML = id.name+" "+id.booking
