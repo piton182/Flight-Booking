@@ -4,12 +4,16 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
 <script type="text/javascript" src="db.js"></script>
-<script src="underscore.js"></script>
+<!-- Ты скачал underscore.js и держишь его в папке проекта?? Зачем?
+в src же можно ссылку на CDN (https://en.wikipedia.org/wiki/Content_delivery_network) указать.
+(http://bfy.tw/5tnZ) -->
+
+<script src="underscore.js"></script> <!-- Зачем подключать то, что не используется? Подключать надо там, где используется. Хотя я понимаю, что require в браузерах не работает. Но для этого есть другие инструменты. -->
 </head>
 <body>
   <div id="flights">Flight Number:</div>
-  <span id='passengers'>Passenger Name  Booking Number</span>
-  <script>parsingFlights()</script>
+  <span id='passengers'>Passenger Name  Booking Number</span> <!-- Why flights is a div and passengers is a span? -->
+  <script>parsingFlights()</script> <!-- Имена функций тоже очень важны. Что, в контексте этого файла, значит parsingFlights? Какие такие flights? И почему parsing? -->
 </body>
 </html>
 
